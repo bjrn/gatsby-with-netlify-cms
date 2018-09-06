@@ -1,0 +1,43 @@
+development_overrides:
+  # run file-system backend for local development
+  backend:
+    name: file-system
+    api_root: /api
+  # reset 'editorial_workflow' if enabled, since it breaks in file-system mode
+  # publish_mode: ''
+
+# regular configuration
+backend:
+  name: github
+  squash_merges: true
+  repo: bjrn/gatsby-with-netlify-cms
+  branch: master
+
+display_url: https://gatsby-with-netlify-cms.netlify.com/
+# publish_mode: editorial_workflow
+media_folder: static/assets
+public_folder: '/assets'
+
+slug:
+  encoding: 'ascii'
+  clean_accents: true
+
+collections:
+  - name: articles
+    label: Articles
+    description: 'Articles'
+    folder: content/articles/
+    slug: '{{slug}}'
+    create: true
+    fields:
+      - { label: Title, name: title, widget: string, tagname: h1 }
+      - { label: 'Author', name: author, widget: string, required: false }
+      - {
+          label: Publish Date,
+          name: date,
+          widget: date,
+          format: 'YYYY-MM-DD',
+          dateFormat: 'YYYY-MM-DD',
+          required: false,
+        }
+      - { label: Body, name: body, widget: markdown }

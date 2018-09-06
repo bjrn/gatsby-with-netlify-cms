@@ -1,0 +1,19 @@
+# Project dependencies
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+.env
+.env.*
+
+# Gatsby Cache + Build directory
+.cache/
+public/
+
+.DS_Store
+yarn-error.log
+
+# Jest reports
+coverage
+
+# IDE
+.idea/
+.history/
